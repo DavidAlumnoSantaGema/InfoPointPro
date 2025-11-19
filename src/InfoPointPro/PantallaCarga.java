@@ -14,7 +14,7 @@ public class PantallaCarga extends JFrame {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(98, 51, 7));
 
-        JLabel title = new JLabel("AAAAAAAAAA", SwingConstants.CENTER);
+        JLabel title = new JLabel("bbbbbbbbbbb", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 22));
         title.setForeground(new Color (255, 237, 186));
 
