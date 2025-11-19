@@ -1,4 +1,5 @@
 package InfoPointPro;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,6 +7,7 @@ public class PantallaCarga extends JFrame {
 
     private JProgressBar progressBar;
     private JLabel messageLabel;
+    private int progress = 0;
 
     public PantallaCarga() {
         setUndecorated(true);
@@ -14,17 +16,18 @@ public class PantallaCarga extends JFrame {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(98, 51, 7));
 
-        JLabel title = new JLabel("bbbbbbbbbbb", SwingConstants.CENTER);
+        JLabel title = new JLabel("Cargando Biblioteca", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 22));
-        title.setForeground(new Color (255, 237, 186));
+        title.setForeground(new Color(255, 237, 186));
 
         progressBar = new JProgressBar(0, 100);
         progressBar.setStringPainted(true);
-        progressBar.setForeground(new Color (255, 237, 186));
-        progressBar.setBackground(new Color (160, 108, 63));
+        progressBar.setForeground(new Color(255, 237, 186));
+        progressBar.setBackground(new Color(160, 108, 63));
+        progressBar.setFont(new Font("Arial", Font.BOLD, 24));
 
         messageLabel = new JLabel("Conectando...", SwingConstants.CENTER);
-        messageLabel.setForeground(new Color (255, 237, 186));
+        messageLabel.setForeground(new Color(255, 237, 186));
 
         add(title, BorderLayout.NORTH);
         add(progressBar, BorderLayout.CENTER);
@@ -32,51 +35,36 @@ public class PantallaCarga extends JFrame {
 
         setVisible(true);
 
-        simulateLoading();
+        startLoading();
     }
 
-    private void simulateLoading() {
-        try {            	
-        	int a = 0;
-            int b = 1;
-            for (int i = 0; i <= 100; i++) {
+    private void startLoading() {
+        Timer timer = new Timer(50, e -> {
+            progress++;
+            progressBar.setValue(progress);
 
-            	if(a < b) {
-            		Thread.sleep(a);
-                	progressBar.setValue(i);
+            if (progress == 30) messageLabel.setText("Conectando...");
+            if (progress == 60) messageLabel.setText("Cargando estilos...");
+            if (progress == 90) messageLabel.setText("Iniciando Biblioteca...");
 
-                	if (i == 30) messageLabel.setText("Cargando módulos...");
-                	if (i == 60) messageLabel.setText("Conectando con la base de datos...");
-                	if (i == 90) messageLabel.setText("Iniciando interfaz...");
-                	
-                	a = b + a;
+            if (progress >= 100) {
+                ((Timer) e.getSource()).stop();
+                dispose();
 
-                	if (i == 100) {
-                		dispose();
-                		new LogIn().setVisible(true);
-                	}
-            	}else {
-            		Thread.sleep(b);
-                	progressBar.setValue(i);
+                new LogIn().setVisible(true);
 
-                	if (i == 30) messageLabel.setText("Cargando módulos...");
-                	if (i == 60) messageLabel.setText("Conectando con la base de datos...");
-                	if (i == 90) messageLabel.setText("Iniciando interfaz...");
-                	
-                	b = a + b;
-
-                	if (i == 100) {
-                		dispose();
-                		new LogIn().setVisible(true);
-                	}
-            	}
+                System.out.println("Pantalla de carga finalizada");
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        });
+
+        timer.start();
     }
 
     public static void main(String[] args) {
+
+        UIManager.put("ProgressBar.selectionForeground", Color.BLACK);
+        UIManager.put("ProgressBar.selectionBackground", Color.BLACK);
+
         new PantallaCarga();
     }
 }
