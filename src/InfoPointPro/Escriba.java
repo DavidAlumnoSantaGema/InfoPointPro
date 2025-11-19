@@ -1,5 +1,6 @@
 package InfoPointPro;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -17,6 +18,15 @@ public class Escriba
 	{
 		try
 		{
+	        File file = new File(RUTACUENTAS);
+	        if (!file.exists())
+	        {
+	            file.createNewFile();
+	            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+	            oos.writeObject(new ArrayList<Cuenta>());
+	            oos.close();
+	        }
+	        
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(RUTACUENTAS));
 			ArrayList<Cuenta> cuentas = (ArrayList<Cuenta>) ois.readObject();
 			ois.close();
