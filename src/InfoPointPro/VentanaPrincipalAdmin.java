@@ -108,7 +108,7 @@ public class VentanaPrincipalAdmin extends JFrame {
 		panelClientes.add(lblTituloClientes);
 		
 		JScrollPane scrollPaneClientes = new JScrollPane();
-		scrollPaneClientes.setBounds(10, 46, 257, 300);
+		scrollPaneClientes.setBounds(10, 46, 257, 240);
 		panelClientes.add(scrollPaneClientes);
 		
 		JList listClientes = new JList();
@@ -117,12 +117,20 @@ public class VentanaPrincipalAdmin extends JFrame {
 		scrollPaneClientes.setViewportView(listClientes);
 		
 		JButton buttonCrearClientes = new JButton("Añadir cliente");
-		buttonCrearClientes.setBounds(10, 357, 120, 49);
+		buttonCrearClientes.setBounds(10, 297, 120, 49);
 		panelClientes.add(buttonCrearClientes);
 		
 		JButton buttonBorrarCliente = new JButton("Borrar cliente");
-		buttonBorrarCliente.setBounds(147, 357, 120, 49);
+		buttonBorrarCliente.setBounds(147, 297, 120, 49);
 		panelClientes.add(buttonBorrarCliente);
+		
+		JButton buttonAdmin = new JButton("Hacer Admin");
+		buttonAdmin.setBounds(10, 357, 120, 49);
+		panelClientes.add(buttonAdmin);
+		
+		JButton buttonAlquilarLibro = new JButton("Alquilar Libro");
+		buttonAlquilarLibro.setBounds(147, 357, 120, 49);
+		panelClientes.add(buttonAlquilarLibro);
 
 		JMenuBar menuBar = new JMenuBar();
 		JMenu lookMenu = new JMenu("Temas");

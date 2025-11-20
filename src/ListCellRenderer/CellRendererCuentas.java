@@ -10,6 +10,7 @@ import InfoPointPro.Cuenta;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 
 public class CellRendererCuentas extends JPanel implements ListCellRenderer<Cuenta>
@@ -46,12 +47,27 @@ public class CellRendererCuentas extends JPanel implements ListCellRenderer<Cuen
 		boolean cellHasFocus)
 	{
 		labelNombre.setText(value.getNombre());
-		labelAvisos.setText(String.valueOf(value.getAvisos().size()));
-		labelLibros.setText(String.valueOf(value.getLibrosAlquilados().size()));
+		labelAvisos.setText("Avisos: " + String.valueOf(value.getAvisos().size()));
+		labelLibros.setText("Libros: " + String.valueOf(value.getLibrosAlquilados().size()));
 		
+		labelNombre.setForeground(Color.BLACK);
+		labelAvisos.setForeground(Color.BLACK);
+		labelLibros.setForeground(Color.BLACK);
+		
+		this.setBackground(list.getBackground());
+		if (value.isAdmin())
+		{
+			this.setBackground(new Color(128, 0, 0));
+			labelNombre.setForeground(Color.WHITE);
+			labelAvisos.setForeground(Color.WHITE);
+			labelLibros.setForeground(Color.WHITE);
+		}
 		if (isSelected)
 		{
 			this.setBackground(list.getSelectionBackground());
+			labelNombre.setForeground(Color.BLACK);
+			labelAvisos.setForeground(Color.BLACK);
+			labelLibros.setForeground(Color.BLACK);
 		}
 		
 		setOpaque(true);
