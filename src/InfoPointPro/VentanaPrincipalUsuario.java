@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class VentanaPrincipal extends JFrame {
+public class VentanaPrincipalUsuario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -16,7 +16,7 @@ public class VentanaPrincipal extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			try {
-				VentanaPrincipal frame = new VentanaPrincipal();
+				VentanaPrincipalUsuario frame = new VentanaPrincipalUsuario();
 				frame.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -27,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPrincipal() {
+	public VentanaPrincipalUsuario() {
 		setTitle("Biblioteca Municipal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
