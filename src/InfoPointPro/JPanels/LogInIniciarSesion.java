@@ -125,10 +125,12 @@ public class LogInIniciarSesion extends JPanel {
 				okButton.getActionMap().put("press", new AbstractAction()
 				{
 				    @Override
-				    public void actionPerformed(ActionEvent e) {
+				    public void actionPerformed(ActionEvent e)
+				    {
 				        okButton.doClick();
 				    }
-				});			}
+				});			
+			}
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setBackground(new Color(160, 108, 63));
