@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import InfoPointPro.Cuenta;
 import InfoPointPro.LogIn;
-import InfoPointPro.Main;
+import InfoPointPro.MainAPP;
 import InfoPointPro.VentanaPrincipalAdmin;
 import InfoPointPro.VentanaPrincipalUsuario;
 
@@ -53,6 +53,7 @@ public class LogInIniciarSesion extends JPanel {
 		contentPanel.add(lblUsuario);
 		
 		textField = new JTextField();
+		textField.setBackground(new Color(160, 108, 63));
 		textField.setBounds(124, 78, 180, 24);
 		contentPanel.add(textField);
 		textField.setColumns(10);
@@ -65,6 +66,7 @@ public class LogInIniciarSesion extends JPanel {
 		}
 		
 		passwordField = new JPasswordField();
+		passwordField.setBackground(new Color(160, 108, 63));
 		passwordField.setBounds(124, 148, 180, 24);
 		contentPanel.add(passwordField);
 		{
@@ -77,14 +79,16 @@ public class LogInIniciarSesion extends JPanel {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setBackground(new Color(255, 237, 186));
 			add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.setBackground(new Color(160, 108, 63));
 				okButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
 					{
-						for (Cuenta cuenta : Main.bbdd.getCuentas())
+						for (Cuenta cuenta : MainAPP.bbdd.getCuentas())
 						{
 							if (cuenta.getNombre().equals(textField.getText())&& cuenta.getPassword().equals(String.valueOf(passwordField.getPassword())))
 							{
@@ -112,6 +116,7 @@ public class LogInIniciarSesion extends JPanel {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setBackground(new Color(160, 108, 63));
 				cancelButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)

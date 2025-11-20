@@ -22,6 +22,7 @@ public class LogIn extends JDialog
 		setBounds(100, 100, 450, 250);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new CardLayout(0, 0));
+        setBackground(new Color(98, 51, 7));
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		

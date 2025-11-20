@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.UIManager;
 
-public class Main
+public class MainAPP
 {
 	public static BBDD bbdd;
 	

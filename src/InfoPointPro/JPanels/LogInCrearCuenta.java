@@ -18,7 +18,8 @@ import javax.swing.border.EmptyBorder;
 import InfoPointPro.BBDD;
 import InfoPointPro.Cuenta;
 import InfoPointPro.LogIn;
-import InfoPointPro.Main;
+import InfoPointPro.MainAPP;
+
 import java.awt.Color;
 
 public class LogInCrearCuenta extends JPanel {
@@ -39,6 +40,8 @@ public class LogInCrearCuenta extends JPanel {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
+		contentPanel.setBackground(new Color(255, 237, 186));
+
 		
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -70,6 +73,7 @@ public class LogInCrearCuenta extends JPanel {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setBackground(new Color(255, 237, 186));
 			add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
@@ -77,7 +81,7 @@ public class LogInCrearCuenta extends JPanel {
 				{
 					public void actionPerformed(ActionEvent e)
 					{
-						for (Cuenta cuenta : Main.bbdd.getCuentas())
+						for (Cuenta cuenta : MainAPP.bbdd.getCuentas())
 						{
 							if (cuenta.getNombre().equals(textField.getText()))
 							{
