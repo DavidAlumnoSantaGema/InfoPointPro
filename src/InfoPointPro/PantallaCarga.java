@@ -3,13 +3,15 @@ package InfoPointPro;
 import javax.swing.*;
 import java.awt.*;
 
-public class PantallaCarga extends JFrame {
-
-    private JProgressBar progressBar;
+public class PantallaCarga extends JFrame
+{
+    private static final long serialVersionUID = 1L;
+	private JProgressBar progressBar;
     private JLabel messageLabel;
     private int progress = 0;
 
-    public PantallaCarga() {
+    public PantallaCarga()
+    {
         setUndecorated(true);
         setSize(600, 300);
         setLocationRelativeTo(null);
@@ -49,22 +51,14 @@ public class PantallaCarga extends JFrame {
 
             if (progress >= 100) {
                 ((Timer) e.getSource()).stop();
-                dispose();
 
                 new LogIn().setVisible(true);
-
+                
                 System.out.println("Pantalla de carga finalizada");
+                dispose();
             }
         });
 
         timer.start();
-    }
-
-    public static void main(String[] args) {
-
-        UIManager.put("ProgressBar.selectionForeground", Color.BLACK);
-        UIManager.put("ProgressBar.selectionBackground", Color.BLACK);
-
-        new PantallaCarga();
     }
 }

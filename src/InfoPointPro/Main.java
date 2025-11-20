@@ -1,19 +1,31 @@
 package InfoPointPro;
 
-import java.util.ArrayList;
+import java.awt.Color;
+
+import javax.swing.UIManager;
 
 public class Main
 {
-	private static ArrayList<Cuenta> cuentasBBDD;
+	public static BBDD bbdd;
 	
 	public static void main(String[] args)
 	{
+		bbdd = new BBDD();
+
 		
+		for (int i = 0; i < bbdd.getCuentas().size(); i++)
+		{
+			System.out.println(bbdd.getCuentas().get(i).toString());
+		}
+		
+		CreateLoadingBar();
 	}
 	
-	
-	private static void CargarCuentas()
+	private static void CreateLoadingBar()
 	{
-		cuentasBBDD = Escriba.LeerCuentas();
+        UIManager.put("ProgressBar.selectionForeground", Color.BLACK);
+        UIManager.put("ProgressBar.selectionBackground", Color.BLACK);
+
+        new PantallaCarga();
 	}
 }
