@@ -50,6 +50,8 @@ public class LogInCrearCuenta extends JPanel {
 		contentPanel.add(lblUsuario);
 		
 		textField = new JTextField();
+		textField.setForeground(new Color(255, 255, 255));
+		textField.setBackground(new Color(184, 140, 92));
 		textField.setBounds(124, 78, 180, 24);
 		contentPanel.add(textField);
 		textField.setColumns(10);
@@ -62,6 +64,8 @@ public class LogInCrearCuenta extends JPanel {
 		}
 		
 		passwordField = new JPasswordField();
+		passwordField.setForeground(new Color(255, 255, 255));
+		passwordField.setBackground(new Color(184, 140, 92));
 		passwordField.setBounds(124, 148, 180, 24);
 		contentPanel.add(passwordField);
 		
@@ -77,6 +81,8 @@ public class LogInCrearCuenta extends JPanel {
 			add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.setForeground(new Color(255, 255, 255));
+				okButton.setBackground(new Color(184, 140, 92));
 				okButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
@@ -106,10 +112,15 @@ public class LogInCrearCuenta extends JPanel {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setForeground(new Color(255, 255, 255));
+				cancelButton.setBackground(new Color(184, 140, 92));
 				cancelButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
 					{
+						usuarioYaCreado.setText("");
+						textField.setText("");
+						passwordField.setText("");
 						ChangePanel("opcion");
 					}
 				});

@@ -53,7 +53,7 @@ public class LogInIniciarSesion extends JPanel {
 		contentPanel.add(lblUsuario);
 		
 		textField = new JTextField();
-		textField.setBackground(new Color(160, 108, 63));
+		textField.setBackground(new Color(184, 140, 92));
 		textField.setBounds(124, 78, 180, 24);
 		contentPanel.add(textField);
 		textField.setColumns(10);
@@ -66,7 +66,7 @@ public class LogInIniciarSesion extends JPanel {
 		}
 		
 		passwordField = new JPasswordField();
-		passwordField.setBackground(new Color(160, 108, 63));
+		passwordField.setBackground(new Color(184, 140, 92));
 		passwordField.setBounds(124, 148, 180, 24);
 		contentPanel.add(passwordField);
 		{
@@ -83,7 +83,7 @@ public class LogInIniciarSesion extends JPanel {
 			add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
-				okButton.setBackground(new Color(160, 108, 63));
+				okButton.setBackground(new Color(184, 140, 92));
 				okButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
@@ -117,7 +117,7 @@ public class LogInIniciarSesion extends JPanel {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setBackground(new Color(160, 108, 63));
+				cancelButton.setBackground(new Color(184, 140, 92));
 				cancelButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)

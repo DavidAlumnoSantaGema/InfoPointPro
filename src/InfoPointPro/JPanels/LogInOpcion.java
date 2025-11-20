@@ -23,7 +23,7 @@ public class LogInOpcion extends JPanel
 		JButton buttonLogIn = new JButton("Iniciar sesión");
 		buttonLogIn.setBackground(new Color(255, 237, 186));
 		buttonLogIn.setBounds(139, 26, 157, 54);
-		setBackground(new Color(160, 108, 63));
+		setBackground(new Color(184, 140, 92));
 		buttonLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
