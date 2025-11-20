@@ -107,8 +107,7 @@ public class LogInCrearCuenta extends JPanel {
 							}
 						}
 						Cuenta cuenta = new Cuenta(textField.getText(), String.valueOf(passwordField.getPassword())); 
-						BBDD bbdd = new BBDD();
-						bbdd.GuardarCuenta(cuenta);
+						MainAPP.bbdd.GuardarCuenta(cuenta);
 						usuarioYaCreado.setForeground(Color.GREEN);
 						usuarioYaCreado.setText("Usuario creado");
 					}
