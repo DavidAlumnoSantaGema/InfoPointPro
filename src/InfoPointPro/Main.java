@@ -18,7 +18,9 @@ public class Main
 			System.out.println(bbdd.getCuentas().get(i).toString());
 		}
 		
-		CreateLoadingBar();
+		//CreateLoadingBar();
+		VentanaPrincipalAdmin frame = new VentanaPrincipalAdmin();
+		frame.setVisible(true);
 	}
 	
 	private static void CreateLoadingBar()

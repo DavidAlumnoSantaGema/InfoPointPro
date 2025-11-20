@@ -89,6 +89,7 @@ public class LogInIniciarSesion extends JPanel {
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				login.getRootPane().setDefaultButton(okButton);
+				// CAMBIAR A MNEMONIC
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
