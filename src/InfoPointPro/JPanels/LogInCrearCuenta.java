@@ -6,12 +6,16 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -81,6 +85,12 @@ public class LogInCrearCuenta extends JPanel {
 				{
 					public void actionPerformed(ActionEvent e)
 					{
+						if (textField.getText().isEmpty() || passwordField.getPassword().length <= 0)
+						{
+							usuarioYaCreado.setForeground(Color.RED);
+							usuarioYaCreado.setText("Nombre o contraseña vacíos.");
+							return;
+						}
 						for (Cuenta cuenta : MainAPP.bbdd.getCuentas())
 						{
 							if (cuenta.getNombre().equals(textField.getText()))
@@ -101,8 +111,14 @@ public class LogInCrearCuenta extends JPanel {
 				buttonPane.add(usuarioYaCreado);
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
-				login.getRootPane().setDefaultButton(okButton);
-				// CAMBIAR A MNEMONIC
+				okButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "press");
+				okButton.getActionMap().put("press", new AbstractAction()
+				{
+				    @Override
+				    public void actionPerformed(ActionEvent e) {
+				        okButton.doClick();
+				    }
+				});
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");

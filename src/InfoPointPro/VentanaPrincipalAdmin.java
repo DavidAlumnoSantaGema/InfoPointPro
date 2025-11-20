@@ -159,7 +159,7 @@ public class VentanaPrincipalAdmin extends JFrame {
 	private void UpdateCuentaList()
 	{
 		listaCuentas.clear();
-		listaCuentas.addAll(Main.bbdd.getCuentas());
+		listaCuentas.addAll(MainAPP.bbdd.getCuentas());
 	}
 
 	private void changeLookAndFeel(String className) {
