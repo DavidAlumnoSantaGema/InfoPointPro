@@ -15,9 +15,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import InfoPointPro.BBDD;
 import InfoPointPro.Cuenta;
 import InfoPointPro.LogIn;
 import InfoPointPro.Main;
+import java.awt.Color;
 
 public class LogInCrearCuenta extends JPanel {
 
@@ -29,6 +31,8 @@ public class LogInCrearCuenta extends JPanel {
 
 	public LogInCrearCuenta(LogIn login)
 	{
+		JLabel usuarioYaCreado = new JLabel("");
+		usuarioYaCreado.setForeground(new Color(255, 0, 0));
 		this.login = login;
 		setBounds(100, 100, 450, 216);
 		setLayout(new BorderLayout());
@@ -77,12 +81,20 @@ public class LogInCrearCuenta extends JPanel {
 						{
 							if (cuenta.getNombre().equals(textField.getText()))
 							{
-								// Existe usuario no crear cuenta
+								usuarioYaCreado.setForeground(Color.RED);
+								usuarioYaCreado.setText("Nombre de Usuario ya creado");
+								return;
 							}
 						}
-						// No existe usuario crear cuenta
+						Cuenta cuenta = new Cuenta(textField.getText(), String.valueOf(passwordField.getPassword())); 
+						BBDD bbdd = new BBDD();
+						bbdd.GuardarCuenta(cuenta);
+						usuarioYaCreado.setForeground(Color.GREEN);
+						usuarioYaCreado.setText("Usuario creado");
 					}
 				});
+				
+				buttonPane.add(usuarioYaCreado);
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				login.getRootPane().setDefaultButton(okButton);
