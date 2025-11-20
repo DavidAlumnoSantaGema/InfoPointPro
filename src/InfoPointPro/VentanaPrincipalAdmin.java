@@ -7,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 import ListCellRenderer.CellRendererCuentas;
 
 import javax.swing.border.BevelBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaPrincipalAdmin extends JFrame {
 
@@ -14,20 +16,6 @@ public class VentanaPrincipalAdmin extends JFrame {
 	private JPanel contentPane;
 	private boolean altoContrasteActivo = false;
 	private DefaultListModel listaCuentas = new DefaultListModel();
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				VentanaPrincipalAdmin frame = new VentanaPrincipalAdmin();
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -152,6 +140,18 @@ public class VentanaPrincipalAdmin extends JFrame {
 
 		menuBar.add(lookMenu);
 		setJMenuBar(menuBar);
+		
+		menuBar.add(Box.createHorizontalGlue());
+		
+		JButton btnNewButton = new JButton("Cerrar Sesion");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogIn login = new LogIn();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		menuBar.add(btnNewButton);
 		
 		UpdateCuentaList();
 	}
