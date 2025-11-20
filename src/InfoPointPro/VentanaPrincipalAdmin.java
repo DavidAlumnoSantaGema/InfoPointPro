@@ -10,26 +10,14 @@ import InfoPointPro.JPanels.VentanaAdminLibros;
 import ListCellRenderer.CellRendererCuentas;
 
 import javax.swing.border.BevelBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaPrincipalAdmin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private boolean altoContrasteActivo = false;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				VentanaPrincipalAdmin frame = new VentanaPrincipalAdmin();
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -71,6 +59,29 @@ public class VentanaPrincipalAdmin extends JFrame {
 
 		menuBar.add(lookMenu);
 		setJMenuBar(menuBar);
+<<<<<<< HEAD
+=======
+		
+		menuBar.add(Box.createHorizontalGlue());
+		
+		JButton btnNewButton = new JButton("Cerrar Sesion");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogIn login = new LogIn();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		menuBar.add(btnNewButton);
+		
+		UpdateCuentaList();
+	}
+	
+	private void UpdateCuentaList()
+	{
+		listaCuentas.clear();
+		listaCuentas.addAll(MainAPP.bbdd.getCuentas());
+>>>>>>> 0f755f80725b6aaa189fba3b208f08e6d0577a20
 	}
 
 	private void changeLookAndFeel(String className) {
