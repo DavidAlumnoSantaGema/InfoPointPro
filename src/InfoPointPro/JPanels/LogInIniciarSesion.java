@@ -6,12 +6,16 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -92,13 +96,18 @@ public class LogInIniciarSesion extends JPanel {
 						{
 							if (cuenta.getNombre().equals(textField.getText())&& cuenta.getPassword().equals(String.valueOf(passwordField.getPassword())))
 							{
-								if (cuenta.isAdmin()) {
-									new VentanaPrincipalAdmin();
-									return;
-								}else {
-									new VentanaPrincipalUsuario();
-									return;
+								if (cuenta.isAdmin())
+								{
+									VentanaPrincipalAdmin backoffice = new VentanaPrincipalAdmin();
+									backoffice.setVisible(true);
 								}
+								else
+								{
+									VentanaPrincipalUsuario frontoffice = new VentanaPrincipalUsuario();
+									frontoffice.setVisible(true);
+								}
+								login.dispose();
+								return;
 							}
 						}
 						UsuarioContraseniaError.setText("Usuario o Contraseña Incorrectos");
@@ -112,9 +121,14 @@ public class LogInIniciarSesion extends JPanel {
 				}
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
-				login.getRootPane().setDefaultButton(okButton);
-				// CAMBIAR A MNEMONIC
-			}
+				okButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "press");
+				okButton.getActionMap().put("press", new AbstractAction()
+				{
+				    @Override
+				    public void actionPerformed(ActionEvent e) {
+				        okButton.doClick();
+				    }
+				});			}
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setBackground(new Color(184, 140, 92));
