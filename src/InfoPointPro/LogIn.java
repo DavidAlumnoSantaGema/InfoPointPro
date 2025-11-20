@@ -4,6 +4,7 @@ import javax.swing.JDialog;
 
 import InfoPointPro.JPanels.*;
 import java.awt.CardLayout;
+import java.awt.Color;
 
 public class LogIn extends JDialog
 {
@@ -17,10 +18,12 @@ public class LogIn extends JDialog
 	 */
 	public LogIn()
 	{
+		setTitle("Inicio Sesión");
 		setBounds(100, 100, 450, 250);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new CardLayout(0, 0));
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
 		
 		opcion = new LogInOpcion(this);
 		iniciarSesion = new LogInIniciarSesion(this);

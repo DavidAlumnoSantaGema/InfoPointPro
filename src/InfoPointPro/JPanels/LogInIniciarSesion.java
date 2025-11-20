@@ -18,6 +18,10 @@ import javax.swing.border.EmptyBorder;
 import InfoPointPro.Cuenta;
 import InfoPointPro.LogIn;
 import InfoPointPro.Main;
+import InfoPointPro.VentanaPrincipalAdmin;
+import InfoPointPro.VentanaPrincipalUsuario;
+
+import java.awt.Color;
 
 public class LogInIniciarSesion extends JPanel {
 
@@ -26,17 +30,21 @@ public class LogInIniciarSesion extends JPanel {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private LogIn login;
+	
 	/**
 	 * Create the panel.
 	 */
 	public LogInIniciarSesion(LogIn login)
 	{
+		JLabel UsuarioContraseniaError = new JLabel("");
+		UsuarioContraseniaError.setForeground(new Color(255, 0, 0));
 		this.login = login;
 		setBounds(100, 100, 450, 216);
 		setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
+		contentPanel.setBackground(new Color(255, 237, 186));
 		
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -80,12 +88,24 @@ public class LogInIniciarSesion extends JPanel {
 						{
 							if (cuenta.getNombre().equals(textField.getText())&& cuenta.getPassword().equals(String.valueOf(passwordField.getPassword())))
 							{
-								// Existe usuario
+								if (cuenta.isAdmin()) {
+									new VentanaPrincipalAdmin();
+									return;
+								}else {
+									new VentanaPrincipalUsuario();
+									return;
+								}
 							}
 						}
-						// No existe usuario
+						UsuarioContraseniaError.setText("Usuario o Contraseña Incorrectos");
+						textField.setText("");
+						passwordField.setText("");
 					}
 				});
+				{
+
+					buttonPane.add(UsuarioContraseniaError);
+				}
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				login.getRootPane().setDefaultButton(okButton);

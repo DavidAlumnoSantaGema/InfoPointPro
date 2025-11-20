@@ -54,7 +54,6 @@ public class PantallaCarga extends JFrame
 
                 new LogIn().setVisible(true);
                 
-                System.out.println("Pantalla de carga finalizada");
                 dispose();
             }
         });
