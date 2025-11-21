@@ -4,6 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import InfoPointPro.JPanels.VentanaAdminAvisos;
+import InfoPointPro.JPanels.VentanaAdminClientes;
+import InfoPointPro.JPanels.VentanaAdminLibros;
 import ListCellRenderer.CellRendererCuentas;
 
 import javax.swing.border.BevelBorder;
@@ -15,7 +18,6 @@ public class VentanaPrincipalAdmin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private boolean altoContrasteActivo = false;
-	private DefaultListModel listaCuentas = new DefaultListModel();
 
 	/**
 	 * Create the frame.
@@ -29,96 +31,13 @@ public class VentanaPrincipalAdmin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panelLibros = new JPanel();
-		panelLibros.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panelLibros.setBounds(10, 11, 277, 417);
-		contentPane.add(panelLibros);
-		panelLibros.setLayout(null);
-		
-		JLabel lblTituloLibros = new JLabel("Libros");
-		lblTituloLibros.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloLibros.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTituloLibros.setBounds(10, 11, 257, 24);
-		panelLibros.add(lblTituloLibros);
-		
-		JScrollPane scrollPaneLibros = new JScrollPane();
-		scrollPaneLibros.setBounds(10, 46, 257, 300);
-		panelLibros.add(scrollPaneLibros);
-		
-		JList listLibros = new JList();
-		scrollPaneLibros.setViewportView(listLibros);
-		
-		JButton buttonCrearLibro = new JButton("Añadir libro");
-		buttonCrearLibro.setBounds(10, 357, 120, 49);
-		panelLibros.add(buttonCrearLibro);
-		
-		JButton buttonBorrarLibro = new JButton("Borrar libro");
-		buttonBorrarLibro.setBounds(147, 357, 120, 49);
-		panelLibros.add(buttonBorrarLibro);
-		
-		JPanel panelAviso = new JPanel();
-		panelAviso.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panelAviso.setBounds(297, 11, 290, 417);
-		contentPane.add(panelAviso);
-		panelAviso.setLayout(null);
-		
-		JLabel lblTituloAvisos = new JLabel("Avisos");
-		lblTituloAvisos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloAvisos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTituloAvisos.setBounds(10, 11, 270, 24);
-		panelAviso.add(lblTituloAvisos);
-		
-		JScrollPane scrollPanelAvisos = new JScrollPane();
-		scrollPanelAvisos.setBounds(10, 46, 270, 300);
-		panelAviso.add(scrollPanelAvisos);
-		
-		JList listAvisos = new JList();
-		scrollPanelAvisos.setViewportView(listAvisos);
-		
-		JButton buttonCrearAviso = new JButton("Crear aviso");
-		buttonCrearAviso.setBounds(10, 357, 120, 49);
-		panelAviso.add(buttonCrearAviso);
-		
-		JButton buttonBorrarAviso = new JButton("Borrar aviso");
-		buttonBorrarAviso.setBounds(160, 357, 120, 49);
-		panelAviso.add(buttonBorrarAviso);
-		
-		JPanel panelClientes = new JPanel();
-		panelClientes.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panelClientes.setBounds(597, 11, 277, 417);
-		contentPane.add(panelClientes);
-		panelClientes.setLayout(null);
-		
-		JLabel lblTituloClientes = new JLabel("Clientes");
-		lblTituloClientes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTituloClientes.setBounds(10, 11, 257, 24);
-		panelClientes.add(lblTituloClientes);
-		
-		JScrollPane scrollPaneClientes = new JScrollPane();
-		scrollPaneClientes.setBounds(10, 46, 257, 240);
-		panelClientes.add(scrollPaneClientes);
-		
-		JList listClientes = new JList();
-		listClientes.setModel(listaCuentas);
-		listClientes.setCellRenderer(new CellRendererCuentas());
-		scrollPaneClientes.setViewportView(listClientes);
-		
-		JButton buttonCrearClientes = new JButton("Añadir cliente");
-		buttonCrearClientes.setBounds(10, 297, 120, 49);
-		panelClientes.add(buttonCrearClientes);
-		
-		JButton buttonBorrarCliente = new JButton("Borrar cliente");
-		buttonBorrarCliente.setBounds(147, 297, 120, 49);
-		panelClientes.add(buttonBorrarCliente);
-		
-		JButton buttonAdmin = new JButton("Hacer Admin");
-		buttonAdmin.setBounds(10, 357, 120, 49);
-		panelClientes.add(buttonAdmin);
-		
-		JButton buttonAlquilarLibro = new JButton("Alquilar Libro");
-		buttonAlquilarLibro.setBounds(147, 357, 120, 49);
-		panelClientes.add(buttonAlquilarLibro);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(10, 11, 864, 417);
+		contentPane.add(tabbedPane);
+
+		tabbedPane.addTab("Libros", null, new VentanaAdminLibros(), "Libros");
+		tabbedPane.addTab("Avisos", null, new VentanaAdminAvisos(), "Avisos");
+		tabbedPane.addTab("Clientes", null, new VentanaAdminClientes(), "Clientes");
 
 		JMenuBar menuBar = new JMenuBar();
 		JMenu lookMenu = new JMenu("Temas");
@@ -140,6 +59,8 @@ public class VentanaPrincipalAdmin extends JFrame {
 
 		menuBar.add(lookMenu);
 		setJMenuBar(menuBar);
+<<<<<<< HEAD
+=======
 		
 		menuBar.add(Box.createHorizontalGlue());
 		
@@ -160,6 +81,7 @@ public class VentanaPrincipalAdmin extends JFrame {
 	{
 		listaCuentas.clear();
 		listaCuentas.addAll(MainAPP.bbdd.getCuentas());
+>>>>>>> 0f755f80725b6aaa189fba3b208f08e6d0577a20
 	}
 
 	private void changeLookAndFeel(String className) {
