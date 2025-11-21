@@ -1,6 +1,9 @@
 package InfoPointPro;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -54,7 +57,20 @@ public class VentanaPrincipalUsuario extends JFrame {
 		lookMenu.add(highContrastItem);
 
 		menuBar.add(lookMenu);
+		menuBar.add(Box.createHorizontalGlue());
+		
+		
 		setJMenuBar(menuBar);
+		
+		JButton btnNewButton = new JButton("Cerrar Sesión");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LogIn login = new LogIn();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		menuBar.add(btnNewButton);
 	}
 
 	private void changeLookAndFeel(String className) {

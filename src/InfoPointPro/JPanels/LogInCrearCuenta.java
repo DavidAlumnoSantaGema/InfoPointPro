@@ -117,13 +117,16 @@ public class LogInCrearCuenta extends JPanel {
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				okButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "press");
+				okButton.setMnemonic(KeyEvent.VK_ENTER);
+				okButton.setToolTipText("Crea cuenta");
 				okButton.getActionMap().put("press", new AbstractAction()
 				{
 				    @Override
-				    public void actionPerformed(ActionEvent e) {
+				    public void actionPerformed(ActionEvent e)
+				    {
 				        okButton.doClick();
 				    }
-				});
+				});	
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
@@ -140,6 +143,17 @@ public class LogInCrearCuenta extends JPanel {
 					}
 				});
 				cancelButton.setActionCommand("Cancel");
+				cancelButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0), "press");
+				cancelButton.setMnemonic(KeyEvent.VK_BACK_SPACE);
+				cancelButton.setToolTipText("Vuelve a la anterior ventana");
+				cancelButton.getActionMap().put("press", new AbstractAction()
+				{
+				    @Override
+				    public void actionPerformed(ActionEvent e)
+				    {
+				    	cancelButton.doClick();
+				    }
+				});	
 				buttonPane.add(cancelButton);
 			}
 		}
