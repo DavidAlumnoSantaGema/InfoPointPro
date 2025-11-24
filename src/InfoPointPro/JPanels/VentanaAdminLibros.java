@@ -15,7 +15,7 @@ public class VentanaAdminLibros extends JPanel
 	public VentanaAdminLibros()
 	{
 		setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		setBounds(10, 11, 666, 417);
+		setBounds(10, 11, 900, 500);
 		setLayout(null);
 		
 		JLabel lblTituloLibros = new JLabel("Libros");

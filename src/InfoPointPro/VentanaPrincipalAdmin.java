@@ -35,9 +35,8 @@ public class VentanaPrincipalAdmin extends JFrame {
 		tabbedPane.setBounds(10, 11, 864, 417);
 		contentPane.add(tabbedPane);
 
-		tabbedPane.addTab("Libros", null, new VentanaAdminLibros(), "Libros");
-		tabbedPane.addTab("Avisos", null, new VentanaAdminAvisos(), "Avisos");
-		tabbedPane.addTab("Clientes", null, new VentanaAdminClientes(), "Clientes");
+		tabbedPane.addTab("Libros", null, new VentanaAdminLibros());
+		tabbedPane.addTab("Clientes", null, new VentanaAdminClientes());
 
 		JMenuBar menuBar = new JMenuBar();
 		JMenu lookMenu = new JMenu("Temas");

@@ -13,6 +13,10 @@ import javax.swing.border.BevelBorder;
 
 import InfoPointPro.MainAPP;
 import ListCellRenderer.CellRendererCuentas;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaAdminClientes extends JPanel
 {
@@ -21,39 +25,55 @@ public class VentanaAdminClientes extends JPanel
 	public VentanaAdminClientes()
 	{
 		setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		setBounds(597, 11, 639, 417);
+		setBounds(597, 11, 864, 417);
 		setLayout(null);
 		
 		JLabel lblTituloClientes = new JLabel("Clientes");
 		lblTituloClientes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTituloClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTituloClientes.setBounds(10, 11, 257, 24);
+		lblTituloClientes.setBounds(10, 11, 284, 24);
 		add(lblTituloClientes);
 		
 		JScrollPane scrollPaneClientes = new JScrollPane();
-		scrollPaneClientes.setBounds(10, 46, 257, 240);
+		scrollPaneClientes.setBounds(10, 46, 284, 325);
 		add(scrollPaneClientes);
 		
 		JList listClientes = new JList();
+		scrollPaneClientes.setViewportView(listClientes);
 		listClientes.setModel(listaCuentas);
 		listClientes.setCellRenderer(new CellRendererCuentas());
-		scrollPaneClientes.setViewportView(listClientes);
 		
 		JButton buttonCrearClientes = new JButton("Añadir cliente");
-		buttonCrearClientes.setBounds(10, 297, 120, 49);
+		buttonCrearClientes.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
+		buttonCrearClientes.setBounds(304, 46, 194, 32);
 		add(buttonCrearClientes);
 		
 		JButton buttonBorrarCliente = new JButton("Borrar cliente");
-		buttonBorrarCliente.setBounds(147, 297, 120, 49);
+		buttonBorrarCliente.setBounds(304, 89, 194, 32);
 		add(buttonBorrarCliente);
 		
 		JButton buttonAdmin = new JButton("Hacer Admin");
-		buttonAdmin.setBounds(10, 357, 120, 49);
+		buttonAdmin.setBounds(304, 132, 194, 32);
 		add(buttonAdmin);
 		
-		JButton buttonAlquilarLibro = new JButton("Alquilar Libro");
-		buttonAlquilarLibro.setBounds(147, 357, 120, 49);
-		add(buttonAlquilarLibro);
+		JPanel contentPane = new JPanel();
+		contentPane.setLayout(null);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBounds(508, 11, 346, 360);
+		add(contentPane);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(0, 0, 346, 360);
+		contentPane.add(tabbedPane);
+		
+		tabbedPane.addTab("Libros asignados", new VentanaAdminAvisos());
+		tabbedPane.addTab("Avisos asignados", new VentanaAdminLibrosAsignados());
 		
 		UpdateCuentaList();
 	}
