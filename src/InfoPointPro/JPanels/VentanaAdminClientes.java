@@ -11,9 +11,13 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
+import InfoPointPro.Cuenta;
 import InfoPointPro.MainAPP;
 import ListCellRenderer.CellRendererCuentas;
 import javax.swing.border.EmptyBorder;
+
+import Dialogs.FormularioCrearCliente;
+
 import javax.swing.JTabbedPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,13 +52,26 @@ public class VentanaAdminClientes extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				
+				FormularioCrearCliente crearCliente = new FormularioCrearCliente(VentanaAdminClientes.this);
+				crearCliente.setModal(true);
+				crearCliente.setVisible(true);
 			}
 		});
 		buttonCrearClientes.setBounds(304, 46, 194, 32);
 		add(buttonCrearClientes);
 		
 		JButton buttonBorrarCliente = new JButton("Borrar cliente");
+		buttonBorrarCliente.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				int selIndex = listClientes.getSelectedIndex();
+				if (selIndex > -1)
+				{
+					Cuenta cuenta = (Cuenta)listClientes.getSelectedValue();
+				}
+			}
+		});
 		buttonBorrarCliente.setBounds(304, 89, 194, 32);
 		add(buttonBorrarCliente);
 		
@@ -78,7 +95,7 @@ public class VentanaAdminClientes extends JPanel
 		UpdateCuentaList();
 	}
 	
-	private void UpdateCuentaList()
+	public void UpdateCuentaList()
 	{
 		listaCuentas.clear();
 		listaCuentas.addAll(MainAPP.bbdd.getCuentas());
