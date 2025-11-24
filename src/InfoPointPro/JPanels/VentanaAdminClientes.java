@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class VentanaAdminClientes extends JPanel
 {
@@ -24,6 +25,7 @@ public class VentanaAdminClientes extends JPanel
 
 	public VentanaAdminClientes()
 	{
+		setBackground(new Color(255, 237, 186));
 		setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		setBounds(597, 11, 864, 417);
 		setLayout(null);

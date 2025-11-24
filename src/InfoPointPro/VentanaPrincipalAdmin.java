@@ -27,6 +27,7 @@ public class VentanaPrincipalAdmin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(184, 140, 92));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -35,10 +36,13 @@ public class VentanaPrincipalAdmin extends JFrame {
 		tabbedPane.setBounds(10, 11, 864, 417);
 		contentPane.add(tabbedPane);
 
-		tabbedPane.addTab("Libros", null, new VentanaAdminLibros());
+		VentanaAdminLibros ventanaAdminLibros = new VentanaAdminLibros();
+		ventanaAdminLibros.setBackground(new Color(255, 237, 186));
+		tabbedPane.addTab("Libros", null, ventanaAdminLibros);
 		tabbedPane.addTab("Clientes", null, new VentanaAdminClientes());
 
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(160, 108, 63));
 		JMenu lookMenu = new JMenu("Temas");
 
 		for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
