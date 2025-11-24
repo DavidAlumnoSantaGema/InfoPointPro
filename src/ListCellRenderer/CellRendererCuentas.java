@@ -39,39 +39,39 @@ public class CellRendererCuentas extends JPanel implements ListCellRenderer<Cuen
 	
 
 	@Override
-	public Component getListCellRendererComponent
-		(JList<? extends Cuenta> list,
-		Cuenta value,
-		int index,
-		boolean isSelected,
-		boolean cellHasFocus)
+	public Component getListCellRendererComponent(
+	        JList<? extends Cuenta> list,
+	        Cuenta value,
+	        int index,
+	        boolean isSelected,
+	        boolean cellHasFocus)
 	{
-		labelNombre.setText(value.getNombre());
-		labelAvisos.setText("Avisos: " + String.valueOf(value.getAvisos().size()));
-		labelLibros.setText("Libros: " + String.valueOf(value.getLibrosAlquilados().size()));
-		
-		labelNombre.setForeground(Color.BLACK);
-		labelAvisos.setForeground(Color.BLACK);
-		labelLibros.setForeground(Color.BLACK);
-		
-		this.setBackground(list.getBackground());
-		if (value.isAdmin())
-		{
-			this.setBackground(new Color(128, 0, 0));
-			labelNombre.setForeground(Color.WHITE);
-			labelAvisos.setForeground(Color.WHITE);
-			labelLibros.setForeground(Color.WHITE);
-		}
-		if (isSelected)
-		{
-			this.setBackground(list.getSelectionBackground());
-			labelNombre.setForeground(Color.BLACK);
-			labelAvisos.setForeground(Color.BLACK);
-			labelLibros.setForeground(Color.BLACK);
-		}
-		
-		setOpaque(true);
-		return this;
+	    labelNombre.setText(value.getNombre());
+	    labelAvisos.setText("Avisos: " + value.getAvisos().size());
+	    labelLibros.setText("Libros: " + value.getLibrosAlquilados().size());
+
+	    Color fondo = list.getBackground();
+	    Color texto = list.getForeground();
+
+	    if (value.isAdmin()) {
+	        fondo = new Color(128, 0, 0);
+	        texto = Color.WHITE;
+	    }
+
+	    if (isSelected) {
+	        fondo = list.getSelectionBackground();
+	        texto = value.isAdmin() ? Color.WHITE : list.getSelectionForeground();
+	    }
+
+	    this.setBackground(fondo);
+	    labelNombre.setForeground(texto);
+	    labelAvisos.setForeground(texto);
+	    labelLibros.setForeground(texto);
+
+	    setOpaque(true);
+	    return this;
 	}
+
+
 
 }

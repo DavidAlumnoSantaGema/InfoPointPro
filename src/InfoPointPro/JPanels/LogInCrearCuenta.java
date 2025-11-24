@@ -54,6 +54,7 @@ public class LogInCrearCuenta extends JPanel {
 		contentPanel.add(lblUsuario);
 		
 		textField = new JTextField();
+		textField.setToolTipText("Inserte Usuario");
 		textField.setForeground(new Color(255, 255, 255));
 		textField.setBackground(new Color(184, 140, 92));
 		textField.setBounds(124, 78, 180, 24);
@@ -68,6 +69,7 @@ public class LogInCrearCuenta extends JPanel {
 		}
 		
 		passwordField = new JPasswordField();
+		passwordField.setToolTipText("Inserte Contaseña");
 		passwordField.setForeground(new Color(255, 255, 255));
 		passwordField.setBackground(new Color(184, 140, 92));
 		passwordField.setBounds(124, 148, 180, 24);

@@ -27,9 +27,9 @@ public class LogInOpcion extends JPanel
 		JButton buttonLogIn = new JButton("Iniciar sesión");
 		buttonLogIn.setBackground(new Color(255, 237, 186));
 		buttonLogIn.setBounds(139, 26, 157, 54);
-		buttonLogIn.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "press");
-		buttonLogIn.setMnemonic(KeyEvent.VK_SPACE);
-		buttonLogIn.setToolTipText("Ventana Inicio Sesión");
+		buttonLogIn.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_I, 0), "press");
+		buttonLogIn.setMnemonic(KeyEvent.VK_I);
+		buttonLogIn.setToolTipText("(Alt+I) Ventana Inicio Sesión");
 		setBackground(new Color(184, 140, 92));
 		buttonLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
@@ -43,9 +43,9 @@ public class LogInOpcion extends JPanel
 		JButton buttonSignUp = new JButton("Crear cuenta");
 		buttonSignUp.setBackground(new Color(255, 237, 186));
 		buttonSignUp.setBounds(139, 115, 157, 54);
-		buttonSignUp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "press");
-		buttonSignUp.setMnemonic(KeyEvent.VK_SPACE);
-		buttonSignUp.setToolTipText("Ventana Crear Cuenta");
+		buttonSignUp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_C, 0), "press");
+		buttonSignUp.setMnemonic(KeyEvent.VK_C);
+		buttonSignUp.setToolTipText("(Alt+C) Ventana Crear Cuenta");
 		buttonSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{

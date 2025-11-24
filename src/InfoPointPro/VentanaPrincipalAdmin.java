@@ -96,14 +96,27 @@ public class VentanaPrincipalAdmin extends JFrame {
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 
-	private void applyColorsRecursively(Component comp, Color background, Color foreground) {
-		comp.setBackground(background);
-		comp.setForeground(foreground);
+	private void applyColorsRecursively(Component comp, Color fondo, Color texto) {
+	    comp.setBackground(fondo);
+	    comp.setForeground(texto);
 
-		if (comp instanceof Container container) {
-			for (Component child : container.getComponents()) {
-				applyColorsRecursively(child, background, foreground);
-			}
-		}
+	    if (comp instanceof JScrollPane sp) {
+	        sp.getViewport().getView().setBackground(fondo);
+	        sp.getViewport().getView().setForeground(texto);
+	        sp.getViewport().setBackground(fondo);
+	        sp.getViewport().setForeground(texto);
+	    }
+
+	    if (comp instanceof JList<?> list) {
+	        list.setBackground(fondo);
+	        list.setForeground(texto);
+	    }
+
+	    if (comp instanceof Container container) {
+	        for (Component child : container.getComponents()) {
+	            applyColorsRecursively(child, fondo, texto);
+	        }
+	    }
 	}
+
 }
